@@ -1,6 +1,8 @@
 import {connect} from 'react-redux';
 import { TodoItem } from './TodoItem';
 import Actions from './../redux/actions/actionTypes';
+import { todosSelector } from './../redux/store/todosSelector';
+import { toggleTodoAction } from '../redux/actions/todosActions';
 
 export const TodoList = ({todos,onToggle})=>{
     return (
@@ -16,17 +18,12 @@ export const TodoList = ({todos,onToggle})=>{
 
 function mapStateToProps(state){
     return {
-        todos: state.todos
+        todos: todosSelector(state)
     }
 }
 function mapDispatchToProps(dispatch){
     return {
-        onToggle: todo =>dispatch({
-            type:Actions.UPDATE_TODO_ACTION,
-            payload: {
-                ...todo, completed:!todo.completed
-            }
-        })
+        onToggle: todo =>dispatch(toggleTodoAction(todo))
     }
 }
 export const TodoListStore = connect(
