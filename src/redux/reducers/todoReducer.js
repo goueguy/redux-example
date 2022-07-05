@@ -10,6 +10,18 @@ const initialState = [
         title:"Préparer le tutoriel",
         completed:true
     }
+    ,
+    {
+        id:3,
+        title:"Découvrir Redux",
+        completed:false
+    }
+    ,
+    {
+        id:4,
+        title:"Découvrir Redux Toolkit",
+        completed:false
+    }
 ]
 const todoReducer = (state=initialState,action)=>{
     switch (action.type) {
@@ -18,7 +30,8 @@ const todoReducer = (state=initialState,action)=>{
                 ...state,
                 action.payload
             ]
-            break;
+        case Actions.UPDATE_TODO_ACTION:
+            return state.map(todo=>todo.id===action.payload.id ? {...todo, ...action.payload}:todo)
         default:
             return state
     }
