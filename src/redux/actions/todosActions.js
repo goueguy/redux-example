@@ -13,3 +13,10 @@ export const toggleTodoAction = (todo)=>({
         ...todo, completed: !todo.completed
     }
 });
+
+export const deleteTodoAction = todo =>(
+    {
+        type:Actions.DELETE_TODO_ACTION,
+        payload: todo.id
+    }
+)

@@ -1,6 +1,7 @@
 const Actions = {
     "ADD_TODO_ACTION":"ADD-TODO-ACTION",
     "UPDATE_TODO_ACTION":"UPDATE-TODO-ACTION",
-
+    "DELETE_TODO_ACTION":"DELETE-TODO-ACTION",
+    "UPDATE_FILTER":"UPDATE-FILTER"
 }
 export default Actions;

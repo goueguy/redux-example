@@ -32,6 +32,8 @@ const todoReducer = (state=initialState,action)=>{
             ]
         case Actions.UPDATE_TODO_ACTION:
             return state.map(todo=>todo.id===action.payload.id ? {...todo, ...action.payload}:todo)
+        case Actions.DELETE_TODO_ACTION:
+            return state.filter(todo=>todo.id!==action.payload)
         default:
             return state
     }
